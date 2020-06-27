@@ -1,0 +1,32 @@
+<div class="row">
+  <%= render 'layouts/common', user: @user, book: Book.new %>
+<div class="col-xs-9">
+  <h1>Books</h1>
+	<table class="table">
+	<thead>
+	<tr>
+		<th></th>
+		<th>title</th>
+		<th>opinion</th>
+		<th></th>
+	</tr>
+    </thead>
+    <tbody>
+	<% @book.each do |book| %>
+	<tr>
+	<td>
+	  <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size:"60x60" %>
+	</td>
+	<td>
+	  <%= link_to book.title, book_path(book) %>
+	</td>
+	<td>
+	  <%= book.body %>
+	</td>
+    </tr>
+    <% end %>
+    </tbody>
+    </table>
+</div>
+</div>
+

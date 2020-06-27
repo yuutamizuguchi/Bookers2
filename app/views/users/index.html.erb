@@ -1,0 +1,23 @@
+<div class="row">
+<%= render 'layouts/common', user: @user, book: Book.new %>
+<div class="col-xs-9">
+<h5>Users</h5>
+<table class="table">
+<thead>
+	<tr>
+		<th>image</th>
+		<th>name</th>
+	</tr>
+</thead>
+<tbody>
+		<% @users.each do |user| %>
+	<tr>
+		<td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size:"60x60" %></td>
+		<td><%= user.name %></td>
+		<td><%= link_to "Show", user_path(user) %></td>
+	</tr>
+    <% end %>
+</tbody>
+</table>
+</div>
+</div>
